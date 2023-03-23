@@ -40,7 +40,6 @@ function generatePassword() {
 
   if (letterCap) {
     newArray = newArray.concat(capLetters)
-    console.log(newArray)
   }
   var letterLower = confirm("do you want lower case letter?")
   if (letterLower ) {
@@ -54,13 +53,67 @@ function generatePassword() {
   if (char) {
     newArray = newArray.concat(specialChar)
   }
-  
-  console.log(newArray)
-  for (let i = 0; i < password; i++) {
-    var index = Math.floor(Math.random() * newArray.length)
-    console.log(newArray[index])
+  var passwordIncorect = true
+
+  while (passwordIncorect) {
+    var generatedPassword = ""
+    var selectedChar = {
+      capLetters:0,
+      lowLetters:0,
+      numbers:0,
+      specialChar:0,
+
+    }
+
+    for (let i = 0; i < password; i++) {
+      var index = Math.floor(Math.random() * newArray.length)
+      if (capLetters.includes(newArray[index])){
+        selectedChar.capLetters+= 1
+      }
+      else if (lowLetters.includes(newArray[index])){
+        selectedChar.lowLetters+= 1
+      }
+      else if (numbers.includes(newArray[index])){
+        selectedChar.numbers+= 1
+      }
+      else if (specialChar.includes(newArray[index])){
+        selectedChar.specialChar+= 1
+      }
+      if (letterCap && selectedChar.capLetters){
+        passwordIncorect = false
+      }else if(letterCap)  {
+        passwordIncorect=true
+      }
+      if (letterLower && selectedChar.lowLetters){
+        passwordIncorect = false
+      }else if(letterLower) {
+        passwordIncorect=true
+      }
+      if (digits && selectedChar.numbers){
+        passwordIncorect = false
+      }else if(digits){
+        passwordIncorect=true
+      }
+      if (char && selectedChar.specialChar){
+        passwordIncorect = false
+      }else if(char) {
+        passwordIncorect=true
+      }
+      generatedPassword += newArray[index]
+    }
+    console.log(generatedPassword)
+
   }
+  
+
+
+
+ return generatedPassword
 }
+
+
+
+
 
 // for (let i = 0; i < array.length; i++) {
 
