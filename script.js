@@ -9,15 +9,19 @@ var specialChar = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '
 //prompt?
 function generatePassword() {
   var password = prompt("Please give a password length between 8 and 128 charcters long. please use digits.")
-  var wrongAnswer = true
-  while (wrongAnswer)
-    if (password > 7 && password < 129) {
-      wrongAnswer = false
-    }
-    else { 
-      return prompt("Please fallow previous instructions.")
-      // loop for begining question 
-    }
+  console.log(password);
+  // var wrongAnswer = true
+  // while (wrongAnswer)
+  if (password > 7 && password < 129) {
+      // wrongAnswer = false
+  }
+  else { 
+      // wrongAnswer = true
+      
+      alert("Please fallow previous instructions.")
+      // generatePassword()
+      return
+  }
   
 
   var newArray = []
@@ -30,23 +34,26 @@ function generatePassword() {
   if (letterLower ) {
     newArray = newArray.concat(lowLetters)
   }
-  var digits = confirm("do you want lower case?")
+  var digits = confirm("do you want numbers case?")
   if (digits) {
     newArray = newArray.concat(numbers)
   }
   var char = confirm("Do you want special characters?")
   if (char) {
     newArray = newArray.concat(specialChar)
-  }
-  else {
-    alert("you must choose at least one option")
+  } 
+  if (!letterCap && !letterLower && !digits && !char){
     return
-    //a return loop back to first prompt
   }
+  // else {
+  //   alert("you must choose at least one option")
+  //   return
+    //a return loop back to first prompt
+  // }
 //password generation a QA code
   var passwordIncorect = true
+  var generatedPassword =""
   while (passwordIncorect) {
-    var generatedPassword = ""
     var selectedChar = {
       capLetters:0,
       lowLetters:0,
@@ -91,6 +98,7 @@ function generatePassword() {
     }
     console.log(generatedPassword)
   }
+  console.log(generatedPassword) 
  return generatedPassword
 }
 
