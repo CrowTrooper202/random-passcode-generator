@@ -9,12 +9,16 @@ var specialChar = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '
 //prompt?
 function generatePassword() {
   var password = prompt("Please give a password length between 8 and 128 charcters long. please use digits.")
-  if (password > 7 && password < 129) {
-  }
-  else { 
-    prompt("Please fallow previous instructions.")
-    // return; 
-  }
+  var wrongAnswer = true
+  while (wrongAnswer)
+    if (password > 7 && password < 129) {
+      wrongAnswer = false
+    }
+    else { 
+      return prompt("Please fallow previous instructions.")
+      // loop for begining question 
+    }
+  
 
   var newArray = []
   var letterCap = confirm("do you want capitilized letters?")
@@ -37,7 +41,7 @@ function generatePassword() {
   else {
     alert("you must choose at least one option")
     return
-    //a return back to first prompt
+    //a return loop back to first prompt
   }
 //password generation a QA code
   var passwordIncorect = true
