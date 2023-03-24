@@ -18,7 +18,7 @@ function generatePassword() {
   else { 
       // wrongAnswer = true
       
-      alert("Please fallow previous instructions.")
+      alert("Start again, and please fallow instructions.")
       // generatePassword()
       return
   }
@@ -34,7 +34,7 @@ function generatePassword() {
   if (letterLower ) {
     newArray = newArray.concat(lowLetters)
   }
-  var digits = confirm("do you want numbers case?")
+  var digits = confirm("do you want numbers?")
   if (digits) {
     newArray = newArray.concat(numbers)
   }
@@ -43,6 +43,7 @@ function generatePassword() {
     newArray = newArray.concat(specialChar)
   } 
   if (!letterCap && !letterLower && !digits && !char){
+    alert("Start again, and please select at least one option.")
     return
   }
   // else {
