@@ -5,25 +5,19 @@ var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 var specialChar = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '.', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~',]
 
 
-//how am i going to get users password lngth?
-//prompt?
+
 function generatePassword() {
   var password = prompt("Please give a password length between 8 and 128 charcters long. please use digits.")
   console.log(password);
-  // var wrongAnswer = true
-  // while (wrongAnswer)
+  
   if (password > 7 && password < 129) {
-      // wrongAnswer = false
+
   }
   else { 
-      // wrongAnswer = true
-      
       alert("Start again, and please fallow instructions.")
-      // generatePassword()
       return
   }
   
-
   var newArray = []
   var letterCap = confirm("do you want capitilized letters?")
 
@@ -46,11 +40,7 @@ function generatePassword() {
     alert("Start again, and please select at least one option.")
     return
   }
-  // else {
-  //   alert("you must choose at least one option")
-  //   return
-    //a return loop back to first prompt
-  // }
+  
 //password generation a QA code
   var passwordIncorect = true
   var generatedPassword =""
